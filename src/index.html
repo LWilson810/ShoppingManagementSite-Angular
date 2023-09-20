@@ -1,0 +1,82 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ITender</title>
+  
+  <!-- <link rel="stylesheet" href="./assets/css/animate.css"  type="text/css"></link> -->
+  
+  <!-- <link rel="stylesheet" href="./assets/css/font-awesome.min.css"  type="text/css"></link> -->
+  <!-- <link rel="stylesheet" href="./assets/global/plugins/bootstrap/css/bootstrap.min.css" type = "text/css"/> -->
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scales=1">
+  
+</head>
+<body>
+  <app-root>
+  </app-root>
+  <!-- <script src = "/assets/global/plugins/jquery.min.js" type="text/javascript"></script> -->
+  <script src="/assets/js/custom.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+    
+      $('a[href*=#]:not([href=#])').click(function() {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname) {
+              var target = $(this.hash);
+              target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+              if ($(window).width() < 768) {
+                  if (target.length) {
+                      $('html,body').animate({
+                          scrollTop: target.offset().top - $('#Header').outerHeight(true) + 1
+                      }, 1000);
+                      return false;
+                  }
+              }
+              else {
+                  if (target.length) {
+                      $('html,body').animate({
+                          scrollTop: target.offset().top - $('#Header').outerHeight(true) + 1
+                      }, 1000);
+                      return false;
+                  }
+              }
+
+          }
+      });
+      
+      $('#toTop').click(function() {
+          $('html,body').animate({
+              scrollTop: 0
+          }, 1000);
+      });
+
+      $('#toDown').click(function() {
+          $('html,body').animate({
+              scrollTop: $("#footer-sec").offset().top
+          }, 1000);
+      });
+      
+      var timer;
+      $(window).bind('scroll',function () {
+          clearTimeout(timer);
+          timer = setTimeout( refresh , 50 );
+      });
+      var refresh = function () {
+          if ($(window).scrollTop()>100) {
+              $(".tagline").fadeTo( "slow", 0 );
+              $("Header").css('background-color', 'black');
+            //   alert("sdf");
+            //   document.getElementById('Header').style.backgroundColor='#000000';
+          }
+          else {
+              $(".tagline").fadeTo( "slow", 1 );
+              ("Header").css('background-color', 'white');
+            //   document.getElementById('Header').style.backgroundColor='transparent';
+          }
+      };
+          
+    });
+  </script>
+</body>
+</html>

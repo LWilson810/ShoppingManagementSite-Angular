@@ -1,0 +1,47 @@
+
+<form [formGroup]='formgroup'>
+    <div class="form-group">
+        <label for="userid">User ID</label> 
+        <div class="auth-form-style">
+            <div class='r-field'>
+                <input [ngClass] = "{'warning': isSubmitted && formgroup.controls.userID.errors?.required}" class = "authInput" placeholder="User ID." formControlName="userID" id="userID" name="userID" value="formgroup.controls.userID.value" type="text">
+            </div>
+            <div class='l-field'>
+                <span class = "icon"><i class = "fa fa-key"></i></span>
+            </div>
+        </div>
+        <small *ngIf='isSubmitted && formgroup.controls.userID.errors?.required'>User ID is required.</small>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label> 
+        <div class="auth-form-style">
+            <div class='r-field'>
+                <input [ngClass] = "{'warning': isSubmitted && formgroup.controls.pwd.errors?.required}" class = "authInput" placeholder="Password." formControlName="pwd" id='pwd' name="pwd" type="password">
+            </div>
+            <div class='l-field'>
+                <span class = "icon"><i class = "fa fa-lock"></i></span>
+            </div>
+        </div>
+        <small *ngIf='isSubmitted && formgroup.controls.pwd.errors?.required'>Password is required.</small>
+    </div>
+    <div class="form-group">
+        <label for="confirm_pwd">Confirm Password</label> 
+        <div class="auth-form-style">
+            <div class="r-field">
+                <input [ngClass] = "{'warning': isSubmitted && (formgroup.controls.pwd.value != formgroup.controls.confirm_pwd.value)}" class = "authInput" id='confirm_pwd' placeholder="Confirm password." formControlName="confirm_pwd" name="confirm_pwd" type="password">
+            </div>
+            <div class="l-field">
+                <span class = "icon"><i class = "fa fa-lock"></i></span>
+            </div>
+        </div>
+        <small *ngIf='isSubmitted && (formgroup.controls.pwd.value != formgroup.controls.confirm_pwd.value)'>Password doesn't match.</small>
+    </div>
+    <div class='row'>
+        <div class="submit-buttons">
+            <button class='prev-button' (click) = "onClickPrevbtn()"><span><i class = "fa fa-arrow-left"></i>&nbsp;Prev</span></button>
+        </div>
+        <div class = "submit-buttons to-right">
+            <button class='next-button' (click) = "onClickSignUp()"><span>Sign Up&nbsp;<i class = "fa fa-arrow-right"></i></span></button>
+        </div>
+    </div>
+</form>

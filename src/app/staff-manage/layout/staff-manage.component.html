@@ -1,0 +1,15 @@
+<div class='main-body'>
+    <navbar></navbar>
+    <h1>Staff Management</h1>
+    <div class="show-menu">
+        <a (click)='addStaff()' class="shadow-top-down">+</a>
+        <!-- <a data-toggle='modal' data-target='#myModal' class="shadow-top-down">+</a> -->
+    </div>
+    <div class='staff-sort'>
+        <staff-sort (changeStaffType) = 'changeStaffType($event)' (changeField) = 'changeField($event)' (changeShop) = 'changeShop($event)' [myFieldInfo]='myFieldInfo' [fields_shops]='fields_shops'></staff-sort>
+    </div>
+    <pagination1 (PageSizeChange)="pageSizeChange($event)" (onPageChange)="setPage($event)" class="pagination" [page]="page" [total]="staff_list_shown.length">
+    </pagination1>
+    <staff-list [staff_list]='staff_shown' 
+    ></staff-list>
+</div>

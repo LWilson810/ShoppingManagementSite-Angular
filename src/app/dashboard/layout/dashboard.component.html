@@ -1,0 +1,87 @@
+<div>
+    <dashboard-topbar></dashboard-topbar>
+    <section id="templatemo_features">
+            
+        <div class="container-fluid">
+            <header class="template_header">
+                <h1 class="text-center"><span>...</span> Management Site <span>...</span></h1>
+            </header>
+            <div class="col-sm-12">
+                <div class="col-md-3 col-sm-6 feature-box">
+                    <!-- <a class='normal' (click)="goToStaffManage()"> -->
+                        <div class="feature-box-inner" (click)="goToStaffManage()">
+                            <div class="feature-box-icon">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            <p>
+                                This is the management page of your staff,<br>
+                                Can add or remove your staff, <br> 
+                                Be cautious of your staff management.<br>
+                            </p>
+                        </div>
+                    <!-- </a> -->
+                </div>
+                <div class="col-md-3 col-sm-6 feature-box" (click)="goToCommodityManage()">
+                    <div class="feature-box-inner">
+                        <div class="feature-box-icon">
+                            <i class="fa fa-cubes"></i>
+                        </div>
+                        <p>
+                            This is the management page of your commodities.<br>
+                            Can add new or Remove.<br>
+                            Be sure not to be open to others.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 feature-box">
+                    <div class="feature-box-inner">
+                        <div class="feature-box-icon">
+                            <i class="fa fa-line-chart"></i>
+                        </div>
+                        <p>
+                            This is the page of statistics.<br>
+                            Can check the state of the sales, gross sales.<br>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 feature-box">
+                    <div class="feature-box-inner">
+                        <div class="feature-box-icon">
+                            <i class="fa fa-trophy"></i>
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <dashboard-chart></dashboard-chart>
+    <section id="templatemo_contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <ul class="nav nav-pills social">
+                        <li><a href="#" class="shadow-top-down social-facebook"><i class="fa fa-facebook-official"></i></a></li>
+                        <li><a href="#" class="shadow-top-down social-twitter"><i class="fa fa-twitter-square"></i></a></li>
+                        <li><a href="#" class="shadow-top-down social-youtube"><i class="fa fa-youtube-square"></i></a></li>
+                        <li><a href="#" class="shadow-top-down social-instagram"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 footer-copyright">
+                    <p>Copyright &copy; 2023 <a href="#" target="_parent">HyeSong Department Store</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <router-outlet></router-outlet>
+</div>
+

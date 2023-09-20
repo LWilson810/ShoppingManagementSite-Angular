@@ -1,0 +1,23 @@
+<div id="chart">
+    <h1>Sales Status Chart</h1>
+    <div class='row chart-body'>
+        <!-- <chart [type]="type" [data]="data" [options]="options"></chart> -->
+        <div class='col-md-2'>
+            <ul>
+                <li><a (click)='showGraph("all")'><span style='color:"#d1655d"'><i class='fa fa-line-chart'></i></span>All</a></li>
+                <li><a (click)='showGraph("industry")'><span style='color:"blue"'><i class='fa fa-line-chart'></i></span>Industry</a></li>
+                <li><a (click)='showGraph("light_indsutry")'><span style='color:"green"'><i class='fa fa-line-chart'></i></span>Light Industry</a></li>
+                <li><a (click)='showGraph("food")'><span style='color:"yellow"'><i class='fa fa-line-chart'></i></span>Food</a></li>
+                <li><a (click)='showGraph("sport")'><span style='color:"lightblue"'><i class='fa fa-line-chart'></i></span>Sport</a></li>
+            </ul>
+        </div>
+        <div class='col-md-10'>
+            <amCharts id="chartdiv" [options]="options" [style.width.%]="100" [style.height.px]="400"></amCharts>
+        </div>
+    </div>
+    <!-- <div [chart]="chart"></div> -->
+    <!-- <div style="display: block">
+        <canvas baseChart [datasets]="bubbleChartData" [options]="bubbleChartOptions" [colors]="bubbleChartColors"
+          [legend]="bubbleChartLegend" [chartType]="bubbleChartType"></canvas>
+    </div> -->
+</div>

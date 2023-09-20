@@ -1,0 +1,23 @@
+<div style=" color: #949a9d;">
+    <div 
+        class="col-6 pagination-container d-flex align-items-center justify-content-around">
+     <ngb-pagination (pageChange)="setPage($event)"
+                     [(page)]="page"
+                     [collectionSize]="total"
+                     [maxSize]="30"
+                     [pageSize]="pageSize"
+                     [rotate]="true">
+     </ngb-pagination>
+    </div>
+ 
+    <div class="col-6" style=" margin-top:8px">
+        <label for="car" style="margin-right:10px" >PageSize</label>
+        <select id='rowid' (change)="onPageSizeChange()" [(ngModel)]="pageSize" style="width:50px; text-align: center;">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+        </select>
+    </div>
+
+</div>
+

@@ -1,0 +1,180 @@
+<div class="modal-div" id="myModal" role="dialog">
+    <!-- <div class="modal-dialog">
+        <div class="modal-content"> -->
+            <div class="modal-header">
+                <div class='row'>
+                    <h4 class="title">Add new staff</h4>
+                </div>
+                
+            </div>
+            <div class="modal-body container-fluid">
+                <form [formGroup]='formgroup'>
+                    <div class="row line">
+                        <div class="m-label">
+                            <label for='first_name'>First Name*&nbsp;</label>
+                        </div>
+                        <mat-form-field class = "m-input">
+                            <input 
+                                matInput 
+                                placeholder="First Name" 
+                                id='first_name' 
+                                formControlName='first_name' 
+                                >  
+                        </mat-form-field>
+                        <div class="m-label">
+                            <small *ngIf='formgroup.controls.first_name.errors?.required'>Required</small>
+                        </div>
+                    </div>
+                    <!-- <div class="row line">
+                        <label for='second_name' class='col-md-3 col-sm-3'>Second Name*&nbsp;</label>
+                        <input [ngClass] = "{'warning': formgroup.controls.second_name.errors?.required}" id='second_name' class='col-md-6 col-sm-6 only-border-bottom' formControlName='second_name' value='formgroup.controls.second_name.value'>  
+                        <small *ngIf='formgroup.controls.second_name.errors?.required'>Required</small>
+                    </div> -->
+                    <div class="row line">
+                        <div class='m-label'>
+                            <label for='second_name'>Second Name*&nbsp;</label>
+                        </div>
+                        <mat-form-field class = "m-input">
+                            <input 
+                                matInput 
+                                placeholder = "Second Name" 
+                                id='second_name' 
+                                formControlName='second_name' 
+                               >
+                        </mat-form-field>    
+                        <div class="m-label">                    
+                            <small *ngIf='formgroup.controls.second_name.errors?.required'>Required</small>
+                        </div>
+                    </div>
+                    <div class="row line">
+                        <div class="m-label">
+                            <label for='gender'>Gender&nbsp;</label>
+                        </div>
+                        <mat-radio-group class = "tp-radio-group" formControlName='gender' >
+                            <mat-radio-button class = "tp-radio-button"
+                                value = "male">
+                                Male
+                            </mat-radio-button>
+                            <mat-radio-button class = "tp-radio-button"
+                                value = "female">
+                                Female
+                            </mat-radio-button>
+                        </mat-radio-group>  
+                    </div>
+                    <div class="row line">
+                        <div class="m-label">
+                            <label for='email'>Email*&nbsp;</label>
+                        </div>
+                        <mat-form-field class = "m-input">
+                            <input 
+                                matInput
+                                type='email'
+                                placeholder="Email"
+                                id='email' 
+                                formControlName='email' 
+                                >  
+                        </mat-form-field>
+                        <div class="m-label" *ngIf=' formgroup.controls.email.errors?.required'>
+                            <small >Required</small>
+                        </div>
+                        <div class="m-label" *ngIf=' formgroup.controls.email.errors?.email'>
+                            <small >Invalid</small>
+                        </div>
+                    </div>
+                    <div class="row line">
+                        <div class="m-label">
+                            <label for='authority'>Authority&nbsp;</label>
+                        </div>
+                        <select [ngClass] = "{'warning': formgroup.controls.authority.errors?.required || formgroup.controls.email.errors?.email }" class = "m-input only-border-bottom" id="authority" name="authority" 
+                            formControlName='authority' >
+                            <option *ngFor="let authority of authorities|filterAuthority:myAuthority" [value]='authority.value'>{{authority.display}}</option>
+                        </select>
+                        <!-- <mat-form-field class='m-input'>
+                            <mat-select id="authority" name="authority" placeholder='Authority'  formControlName='authority'>
+                                <mat-option *ngFor="let authority of authorities" [value]='authority.value'>
+                                    {{authority.display}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field> -->
+                        <div class="m-label">
+                            <small *ngIf=' formgroup.controls.authority.errors?.required'>Required</small>
+                        </div>
+                        <!-- <mat-select placeholder = "Authority" 
+                             name = "authority">
+                            <mat-option *ngFor = "let authority of authorities" 
+                                [value] = "authority.value">
+                                {{authority.display}}
+                            </mat-option>
+                        </mat-select> -->
+                    </div>
+                    <div class="row line" *ngIf='formgroup.controls.authority.value'>
+                        <div class="m-label">
+                            <label for='field'>Field&nbsp;</label>
+                        </div>
+                        <select  id="field" name="field" formControlName='field'  class = "m-input only-border-bottom" (change)='onChangeField()'>
+                            <option *ngFor="let item of fields_shops|filterFieldsShops: 'field' : myField" [value]='item.field' autoDeslash>{{item.field}}</option>
+                            <!-- <option value='shopkeeper'>Shopkeeper</option>
+                            <option value='staff'>Staff</option> -->
+                        </select>
+                    </div>
+                    <div class="row line" *ngIf='formgroup.controls.authority.value =="shopkeeper" || formgroup.controls.authority.value =="staff"'>
+                        <div class="m-label">
+                            <label for='shop'>Shop&nbsp;</label>
+                        </div>
+                        <select  id="shop" name="shop" formControlName='shop'  class = "m-input only-border-bottom">
+                            <option *ngFor="let item of shops|filterFieldsShops: 'shop' : myShop" [value]='item.shop' autoDeslash>{{item.shop}}</option>
+                            <!-- <option value='shopkeeper'>Shopkeeper</option>
+                            <option value='staff'>Staff</option> -->
+                        </select>
+                    </div>
+                    <div class="row line">
+                        <div class="m-label">
+                            <label for='birthday'>Birthday*&nbsp;</label>
+                        </div>
+                        <mat-form-field class = "m-input">
+                            <input 
+                                matInput 
+                                type='date' 
+                                placeholder="Birthday"
+                                id='birthday'  
+                                formControlName='birthday' 
+                                >  
+                            <!-- <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker> -->
+                        </mat-form-field>
+                        <div class="m-label">
+                            <small *ngIf=' formgroup.controls.birthday.errors?.required'>Required</small>
+                        </div>
+                    </div>
+                    <div class="row line">
+                        <div class="m-label">
+                            <label for='phone'>Phone&nbsp;</label>
+                        </div>
+                        <mat-form-field class = "m-input">
+                            <input 
+                                matInput 
+                                placeholder="Phone"
+                                id='phone' 
+                                formControlName='phone' 
+                                >  
+                        </mat-form-field>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-default" (click)='closeModal()'>Close</button> -->
+                <button
+                    (click)='addNewStaff()' 
+                    class="dnm-btn dnm-btn-cancel text-uppercase button-submit" type="button">
+                        <i class="fa fa-send"></i> Add
+                </button>
+                <button 
+                    (click)="closeModal()"
+                    class="dnm-btn dnm-btn-cancel text-uppercase" style=" border: none; " type="button">
+                    <i class="fa fa-close"></i> Close
+                </button>
+            </div>
+        <!-- </div>
+        
+    </div> -->
+</div>

@@ -1,0 +1,38 @@
+<div class='container'>
+    <form [formGroup]='SortForm'>
+        <div class='row'>
+            <div class='col-md-4 col-sm-4'>
+                <span>Staff Type&nbsp;</span>
+                <select (change)='onChangeStaffType($event)'>
+                    <option value='all' selected>All</option>
+                    <option *ngFor="let authority of authorities|filterAuthority:myFieldInfo.myAuthority" [value]='authority.value'>{{authority.display}}</option>
+                    <!-- <option value='vice_president'>Vice President</option>
+                    <option value='shopkeeper'>Shopkeeper</option>
+                    <option value='staff'>Staff</option> -->
+                </select>
+            </div>
+            <div class='col-md-4 col-sm-4' >
+                <span>Field&nbsp;</span>
+                <select (change)='onChangeField($event)'>
+                    <option value='all' selected>All</option>
+                    <!-- <option value='industry'>Industry</option>
+                    <option value='light_industry'>Light Industry</option>
+                    <option value='food'>Food</option>
+                    <option value='sport'>Sport</option> -->
+                    <option *ngFor="let item of fields_shops|filterFieldsShops: 'field' : myFieldInfo.myField" [value]='item.field' autoDeslash>{{item.field}}</option>
+                </select>
+            </div>
+            <div class='col-md-4 col-sm-4' >
+                <span>Shop&nbsp;</span>
+                <select (change)='onChangeShop($event)'>
+                    <option value='all' selected>All</option>
+                    <option *ngFor="let item of shops|filterFieldsShops: 'shop' : myFieldInfo.myShop" [value]='item.shop' autoDeslash>{{item.shop}}</option>
+                    <!-- <option value='electricity_product'>Electricity Product</option>
+                    <option value='electronic_product'>Electronic Product</option> -->
+                    <!-- <option value='food'>Food</option>
+                    <option value='sport'>Sport</option> -->
+                </select>
+            </div>
+        </div>
+    </form>
+</div>

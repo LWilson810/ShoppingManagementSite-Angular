@@ -1,0 +1,15 @@
+<div> 
+    <section class='main-body'>
+        <navbar></navbar>
+        <h1>Commodity Management</h1>
+        <div class="show-menu">
+            <a (click)='addCommodity()' class="shadow-top-down">+</a>
+            <!-- <a data-toggle='modal' data-target='#myModal' class="shadow-top-down">+</a> -->
+        </div>
+        <!-- <router-outlet></router-outlet> -->
+        <commodity-sort (changeField) = 'changeField($event)' (changeShop) = 'changeShop($event)' (onAddField) = 'onAddField($event)' (onAddShop) = 'onAddShop($event)' [myFieldInfo]='myFieldInfo' [fields_shops]='fields_shops'></commodity-sort>
+        <commodity-list [myFieldInfo]='myFieldInfo' [fields_shops]='fields_shops' [commodities]='commodities' [field]='field' [shop]='shop'></commodity-list>
+    </section>
+    <!-- <router-outlet></router-outlet> -->
+</div>
+    

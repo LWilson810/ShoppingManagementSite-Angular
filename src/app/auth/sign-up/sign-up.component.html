@@ -1,0 +1,14 @@
+<div class='main-body'>
+    <div>
+        <h1 class = "title">Register Staff</h1>
+    </div>
+    <div class="container-fluid">
+        <div class="loginContainer" *ngIf = 'step == 1'>
+            <first-register  (onClickNextBtn) = "goToNextStep($event)" (onClickPrevBtn) = "goToPrevStep()"></first-register>
+        </div>
+        <div class='loginContainer' *ngIf = 'step == 2'>
+            <second-register  (onClickSignUpBtn) = "signUp($event)" (onClickPrevBtn) = "goToPrevStep()"></second-register>
+        </div>
+        <!-- <third-register *ngIf = 'step == 3' (onClickNextBtn) = "goToNextStep()" (onClickPrevBtn) = "goToPrevStep()"></third-register> -->
+    </div>
+</div>

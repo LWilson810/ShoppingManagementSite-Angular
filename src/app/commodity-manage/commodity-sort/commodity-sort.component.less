@@ -1,0 +1,105 @@
+span {
+    color: white
+}
+
+select {
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.add-item {
+    color: transparent;
+    margin-left: 10px;
+}
+
+#field:hover, #shop:hover {
+    .add-item {
+        color: #ffffff;
+    }
+    .add-item:hover {
+        color: #006688;
+    }
+}
+
+// #field {
+//     width: 30vw;
+// }
+
+// #shop {
+//     width: 40vw;
+// }
+
+#field select {
+    width: 15vw;
+}
+
+#shop select {
+    width: 15vw;
+}
+
+
+input[type='text'] {
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.check {
+    color: #00ff22;
+    margin-left: 10px;
+}
+.check:hover {
+    color: lightgreen;
+}
+
+.cross {
+    color: #ff2200;
+    margin-left: 10px;
+}
+
+.cross:hover {
+    color: orange;
+}
+
+.fixed-position {
+    background-color: #000000;
+    position: fixed;
+    z-index:10;
+}
+
+ul {
+    list-style-type: none;
+    flex-direction: row;
+    
+}
+
+ul li {
+    display:inline-block;
+    margin-right: 15vw;
+}
+
+@media only screen and (max-width: 720px) {
+    // #field {
+    //     width: 40vw;
+    // }
+    
+    // #shop {
+    //     width: 40vw;
+    // }
+    
+    #field select {
+        width: 20vw;
+    }
+    
+    #shop select {
+        width: 20vw;
+    }
+
+    input[type='text'] {
+        width: 25vw;
+    }
+
+    ul li {
+        display:inline-block;
+        margin-right: 5vw;
+    }
+}

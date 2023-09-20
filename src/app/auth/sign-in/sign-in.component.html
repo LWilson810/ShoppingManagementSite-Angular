@@ -1,0 +1,53 @@
+
+<div class='main-body'>
+    <div>
+        <h1 class = "title">Department Store Management</h1>
+    </div>
+    <div class="container-fluid">
+        <div class="loginContainer">
+            <form [formGroup]='loginForm'>
+                <div class="form-group">
+                    <label for="userID">UserID</label> 
+                    <div class="auth-form-style">
+                        <div class="r-field">
+                            <input class = "authInput" placeholder="UserID." formControlName="userID" id="userID" name="userID"  type='text'>
+                        </div>
+                        <div class='l-field'>
+                            <span class = "icon"><i class = "fa fa-user"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label> 
+                    <div class="auth-form-style">
+                        <div class="r-field">
+                            <input class = "authInput" placeholder="Password." formControlName="password" id="password" name="password"  type="password">
+                        </div>
+                        <div class='l-field' showPassword>
+                            <span class = "icon" ><i class = "fa fa-eye"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <!-- <div class="">
+                        <div class='checkbox'>
+                            <span><i class='fa fa-check'></i></span>
+                        </div>
+                        <span class = "keepInfo pull-right">Keep my user info.</span>
+                    </div> -->
+                    <div class="tp-field">
+                        <section class = "tp-section">
+                            <mat-checkbox class = "tp-margin"><span class='keepInfo'>Remember me.</span></mat-checkbox>
+                        </section>
+                    </div>
+                    <div class = "submit-buttons to-right">
+                        <button (click) = "login()"><span><i class = "fa fa-shopping-cart"></i>&nbsp;Login</span></button>
+                    </div>
+                </div>
+                <div>
+                    <span class='is-account'>Don't have an account? &nbsp;<a [routerLink]="['/sign-up']" class="link"><span>Sign up</span></a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

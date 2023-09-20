@@ -1,0 +1,75 @@
+body {
+    padding: 0 !important;
+}
+
+.main-body {
+    background: url('../../../assets/images/pattern_bg.png') fixed;
+    min-height: 100vh;
+    // height: 100%;
+    // width: 100%;
+    // position: fixed;
+    // top:0;
+    // left:0;
+    // padding:0;
+}
+
+h1 {
+    padding:70px 10px 20px 10px;
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    margin:0;
+}
+
+#commodity-sort {
+    position: fixed;
+    z-index:10;
+}
+
+.fixed {
+    position: fixed;
+    top:70;
+    right:0;
+    z-index: 1;
+    border-radius: 20px;
+}
+
+.fixed span {
+    font-size: 30px;
+    color: white;
+}
+
+.shadow-top-down {
+    box-shadow: 0px 16px 8px -4px rgba(0,0,0,0.75);
+    transition: all .5s;
+}
+.shadow-top-down:hover { 
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.25);
+}
+
+.show-menu {
+    position: fixed;
+    z-index: 999;
+    top: 80px;
+    right: 100px;
+    text-align: center;
+}
+.show-menu a {
+    font: normal normal 100 100px/70px 'Fira Sans', sans-serif;
+    border: 1px solid rgba(37,58,68,.15);
+    text-decoration: none;
+    border-radius: 50px;
+    background: #fff;
+    display: block;
+    transition: all 0.3s;
+    color: #455a64;
+    width: 70px;
+    height: 70px;
+    padding: 0px;
+    outline: none;
+}
+
+.show-menu a:hover {
+    color: #006688;
+    cursor: pointer;
+} 

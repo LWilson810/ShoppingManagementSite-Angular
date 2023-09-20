@@ -1,0 +1,69 @@
+<div class="modal-div" id="myModal" role="dialog">
+    <!-- <div class="modal-dialog">
+        <div class="modal-content"> -->
+            <div class="modal-header">
+                <div class='row'>
+                    <h4 class="title">Add new commodity</h4>
+                </div>
+                
+            </div>
+            <div class="modal-body container-fluid">
+                <form [formGroup]='formgroup'>
+                    <div class="row line">
+                        <label for='name' class='col-md-2 col-sm-2'>Name&nbsp;</label>
+                        <input class='col-md-10 col-sm-10 only-border-bottom' id='name' formControlName='name'>
+                    </div>
+                    <div class="row line">
+                        <label for='field' class='col-md-2 col-sm-2'>Field&nbsp;</label>
+                        <select id='field' class='col-md-4 col-sm-4 only-border-bottom' (change)='onChangeField()' formControlName='field'>
+                            <!-- <option value='industry'>Industry</option>
+                            <option value='light_industry'>Light Industry</option>
+                            <option value='food'>Food</option>
+                            <option value='sport'>Sport</option> -->
+                            <option *ngFor='let item of fields_shops|filterFieldsShops: "field" : myFieldInfo.myField' [value]='item.field'>{{item.field}}</option>
+                        </select>
+                        <label for='shop' class='col-md-2 col-sm-2'>Shop&nbsp;</label>
+                        <select id='shop' class='col-md-4 col-sm-4 only-border-bottom' formControlName='shop'>
+                            <option *ngFor="let item of shops|filterFieldsShops: 'shop' : myFieldInfo.myShop" [value]='item.shop'>{{item.shop}}</option>
+                            <!-- <option value='electricity_product'>Electricity Product</option>
+                            <option value='electronic_product'>Electronic Product</option> -->
+                            <!-- <option value='food'>Food</option>
+                            <option value='sport'>Sport</option> -->
+                        </select>    
+                    </div>
+                    <div class="row line">
+                        <label for='price' class='col-md-2 col-sm-2'>Price($)&nbsp;</label>
+                        <input id='price' class='col-md-4 col-sm-4 only-border-bottom' type='number' formControlName='price'>
+                        <label for='stock' class='col-md-2 col-sm-2'>Stock&nbsp;</label>
+                        <input id='stock' class='col-md-4 col-sm-4 only-border-bottom' type='number' formControlName='stock'>  
+                    </div>
+                    <div class="row line">
+                        <label for='description' class='col-md-2 col-sm-2'>Description&nbsp;</label>
+                        <textarea class='col-md-10 col-sm-10' id='description' formControlName='description'></textarea>
+                    </div>
+                    <div class="row line">
+                        <label for='figures' class='col-md-2 col-sm-2'>Figures&nbsp;</label>
+                        <!-- <textarea class='col-md-10 col-sm-10' id='description'></textarea> -->
+                        <input id='file' type='file' class='hidden' (change) = "onFileUploading($event)" multiple >
+                        <span><a (click)='onClickUploadBtn()'>Click here to attach figures</a></span>
+                        <span class='check hidden'><i class='fa fa-check'></i></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-default" (click)='closeModal()'>Close</button> -->
+                <button
+                    (click)='addNewCommodity()' 
+                    class="dnm-btn dnm-btn-cancel text-uppercase button-submit" type="button">
+                        <i class="fa fa-send"></i> Add
+                </button>
+                <button 
+                    (click)="closeModal()"
+                    class="dnm-btn dnm-btn-cancel text-uppercase" style=" border: none; " type="button">
+                    <i class="fa fa-close"></i> Close
+                </button>
+            </div>
+        <!-- </div>
+        
+    </div> -->
+</div>

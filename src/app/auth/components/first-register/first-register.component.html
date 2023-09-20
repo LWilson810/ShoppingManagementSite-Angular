@@ -1,0 +1,23 @@
+
+<form [formGroup]='formgroup'>
+    <div class="form-group">
+        <label for="email" >Email</label> 
+        <span>sfdfs</span>
+        <div class="auth-form-style">
+            <div class='r-field'>
+                <input class = "authInput" placeholder="hys@hys.com" formControlName="email" id="email" name="email" value="formgroup.controls.email.value" type="email">
+            </div>
+            <div class='l-field'>
+                <span class = "icon"><i class = "fa fa-envelope"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class="submit-buttons">
+            <button class='prev-button' (click) = 'onClickPrevbtn()'><span><i class = "fa fa-arrow-left"></i>&nbsp;Home</span></button>
+        </div>
+        <div class = "submit-buttons to-right">
+            <button class='next-button'  (click) = 'onClickNextbtn()'><span>Check&nbsp;<i class = "fa fa-arrow-right"></i></span></button>
+        </div>
+    </div>
+</form>

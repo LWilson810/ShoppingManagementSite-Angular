@@ -1,0 +1,40 @@
+<!-- <div id="Header">
+    <div class="col-md-12">
+        <ul class="nav nav-pills pull-right" style = "margin-top:10px">
+            <li id = "3" ><a [routerLink] = "['/main/notification']"><i class = "fa fa-bell-o"></i>Notifications</a></li>
+            <li id = "5" ><a [routerLink] = "['/main/discuss']"><i class = "fa fa-sign-out"></i>Sign Out</a></li>
+        </ul>
+    </div>
+    <nav class="nav navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="col-md-12">
+                
+                <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#header">Home</a></li>
+                        <li><a href="#feature">Feature</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div> -->
+<header >
+    <div >
+        <!--nav-->
+        <nav class="nav navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+                        <ul class="nav navbar-nav">
+                            <li id = "3" ><a [routerLink] = "['/main/notification']"><i class = "fa fa-bell-o"></i>&nbsp;Notifications</a></li>
+                            <li id = "5" ><a (click)='signOut()'><i class = "fa fa-sign-out"></i>&nbsp;Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>

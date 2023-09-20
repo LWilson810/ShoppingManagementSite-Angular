@@ -1,0 +1,1782 @@
+{
+  "contractName": "C",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "data",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052602a600055348015601457600080fd5b50609e806100236000396000f300608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806373d4a13a146044575b600080fd5b348015604f57600080fd5b506056606c565b6040518082815260200191505060405180910390f35b600054815600a165627a7a723058209668ee92f5fad10911540ec9943ab70ec15b7e711713b73a56edfe97b81c64c30029",
+  "deployedBytecode": "0x608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806373d4a13a146044575b600080fd5b348015604f57600080fd5b506056606c565b6040518082815260200191505060405180910390f35b600054815600a165627a7a723058209668ee92f5fad10911540ec9943ab70ec15b7e711713b73a56edfe97b81c64c30029",
+  "sourceMap": "27:43:0:-;;;64:2;45:21;;27:43;8:9:-1;5:2;;;30:1;27;20:12;5:2;27:43:0;;;;;;;",
+  "deployedSourceMap": "27:43:0:-;;;;;;;;;;;;;;;;;;;;;;;;45:21;;8:9:-1;5:2;;;30:1;27;20:12;5:2;45:21:0;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.0;\r\n\r\ncontract C {\r\n    uint public data = 42;\r\n}\r\n\r\ncontract test {\r\n    mapping (address => uint) public balances;\r\n    enum ActionChoices { GoLeft, GoRight, GoStraight, SitStill }\r\n    ActionChoices choice;\r\n    ActionChoices constant defaultChoice = ActionChoices.GoStraight;\r\n    C c = new C();\r\n    uint local;\r\n    event report(ActionChoices);\r\n    function setGoStraight() public {\r\n        choice = ActionChoices.GoStraight;\r\n    }\r\n    function getChoice() public view returns (ActionChoices) {\r\n        return choice;\r\n    }\r\n    function getDefaultChoice() public view returns (ActionChoices) {\r\n        emit report(defaultChoice);\r\n\r\n        return ActionChoices(defaultChoice);\r\n    }\r\n\r\n    function getC() public {\r\n        local = c.data();\r\n    }\r\n}\r\n\r\n",
+  "sourcePath": "D:\\WorkStation\\WEB\\Project\\ShoppingSite(Angular)\\ethDApp\\contracts\\Example.sol",
+  "ast": {
+    "absolutePath": "/D/WorkStation/WEB/Project/ShoppingSite(Angular)/ethDApp/contracts/Example.sol",
+    "exportedSymbols": {
+      "C": [
+        5
+      ],
+      "test": [
+        73
+      ]
+    },
+    "id": 74,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 5,
+        "linearizedBaseContracts": [
+          5
+        ],
+        "name": "C",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 4,
+            "name": "data",
+            "nodeType": "VariableDeclaration",
+            "scope": 5,
+            "src": "45:21:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "45:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "3432",
+              "id": 3,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "64:2:0",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_42_by_1",
+                "typeString": "int_const 42"
+              },
+              "value": "42"
+            },
+            "visibility": "public"
+          }
+        ],
+        "scope": 74,
+        "src": "27:43:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [
+          5
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 73,
+        "linearizedBaseContracts": [
+          73
+        ],
+        "name": "test",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 9,
+            "name": "balances",
+            "nodeType": "VariableDeclaration",
+            "scope": 73,
+            "src": "95:41:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 8,
+              "keyType": {
+                "id": 6,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "104:7:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "95:25:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 7,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "115:4:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "test.ActionChoices",
+            "id": 14,
+            "members": [
+              {
+                "id": 10,
+                "name": "GoLeft",
+                "nodeType": "EnumValue",
+                "src": "164:6:0"
+              },
+              {
+                "id": 11,
+                "name": "GoRight",
+                "nodeType": "EnumValue",
+                "src": "172:7:0"
+              },
+              {
+                "id": 12,
+                "name": "GoStraight",
+                "nodeType": "EnumValue",
+                "src": "181:10:0"
+              },
+              {
+                "id": 13,
+                "name": "SitStill",
+                "nodeType": "EnumValue",
+                "src": "193:8:0"
+              }
+            ],
+            "name": "ActionChoices",
+            "nodeType": "EnumDefinition",
+            "src": "143:60:0"
+          },
+          {
+            "constant": false,
+            "id": 16,
+            "name": "choice",
+            "nodeType": "VariableDeclaration",
+            "scope": 73,
+            "src": "209:20:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_enum$_ActionChoices_$14",
+              "typeString": "enum test.ActionChoices"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 15,
+              "name": "ActionChoices",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 14,
+              "src": "209:13:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_ActionChoices_$14",
+                "typeString": "enum test.ActionChoices"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 20,
+            "name": "defaultChoice",
+            "nodeType": "VariableDeclaration",
+            "scope": 73,
+            "src": "236:63:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_enum$_ActionChoices_$14",
+              "typeString": "enum test.ActionChoices"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 17,
+              "name": "ActionChoices",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 14,
+              "src": "236:13:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_ActionChoices_$14",
+                "typeString": "enum test.ActionChoices"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "expression": {
+                "argumentTypes": null,
+                "id": 18,
+                "name": "ActionChoices",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 14,
+                "src": "275:13:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_type$_t_enum$_ActionChoices_$14_$",
+                  "typeString": "type(enum test.ActionChoices)"
+                }
+              },
+              "id": 19,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "lValueRequested": false,
+              "memberName": "GoStraight",
+              "nodeType": "MemberAccess",
+              "referencedDeclaration": null,
+              "src": "275:24:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_ActionChoices_$14",
+                "typeString": "enum test.ActionChoices"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 25,
+            "name": "c",
+            "nodeType": "VariableDeclaration",
+            "scope": 73,
+            "src": "306:13:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_C_$5",
+              "typeString": "contract C"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 21,
+              "name": "C",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 5,
+              "src": "306:1:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_C_$5",
+                "typeString": "contract C"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "arguments": [],
+              "expression": {
+                "argumentTypes": [],
+                "id": 23,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "lValueRequested": false,
+                "nodeType": "NewExpression",
+                "src": "312:5:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_function_creation_nonpayable$__$returns$_t_contract$_C_$5_$",
+                  "typeString": "function () returns (contract C)"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 22,
+                  "name": "C",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 5,
+                  "src": "316:1:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_C_$5",
+                    "typeString": "contract C"
+                  }
+                }
+              },
+              "id": 24,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": false,
+              "kind": "functionCall",
+              "lValueRequested": false,
+              "names": [],
+              "nodeType": "FunctionCall",
+              "src": "312:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_C_$5",
+                "typeString": "contract C"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 27,
+            "name": "local",
+            "nodeType": "VariableDeclaration",
+            "scope": 73,
+            "src": "326:10:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 26,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "326:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 31,
+            "name": "report",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 30,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 29,
+                  "indexed": false,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31,
+                  "src": "356:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ActionChoices_$14",
+                    "typeString": "enum test.ActionChoices"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 28,
+                    "name": "ActionChoices",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 14,
+                    "src": "356:13:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ActionChoices_$14",
+                      "typeString": "enum test.ActionChoices"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "355:15:0"
+            },
+            "src": "343:28:0"
+          },
+          {
+            "body": {
+              "id": 39,
+              "nodeType": "Block",
+              "src": "409:52:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 37,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 34,
+                      "name": "choice",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 16,
+                      "src": "420:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_ActionChoices_$14",
+                        "typeString": "enum test.ActionChoices"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 35,
+                        "name": "ActionChoices",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14,
+                        "src": "429:13:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_ActionChoices_$14_$",
+                          "typeString": "type(enum test.ActionChoices)"
+                        }
+                      },
+                      "id": 36,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "GoStraight",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "429:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_ActionChoices_$14",
+                        "typeString": "enum test.ActionChoices"
+                      }
+                    },
+                    "src": "420:33:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ActionChoices_$14",
+                      "typeString": "enum test.ActionChoices"
+                    }
+                  },
+                  "id": 38,
+                  "nodeType": "ExpressionStatement",
+                  "src": "420:33:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 40,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "setGoStraight",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 32,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "399:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 33,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "409:0:0"
+            },
+            "scope": 73,
+            "src": "377:84:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 47,
+              "nodeType": "Block",
+              "src": "524:32:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 45,
+                    "name": "choice",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 16,
+                    "src": "542:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ActionChoices_$14",
+                      "typeString": "enum test.ActionChoices"
+                    }
+                  },
+                  "functionReturnParameters": 44,
+                  "id": 46,
+                  "nodeType": "Return",
+                  "src": "535:13:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 48,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getChoice",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 41,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "485:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 44,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 43,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48,
+                  "src": "509:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ActionChoices_$14",
+                    "typeString": "enum test.ActionChoices"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 42,
+                    "name": "ActionChoices",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 14,
+                    "src": "509:13:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ActionChoices_$14",
+                      "typeString": "enum test.ActionChoices"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "508:15:0"
+            },
+            "scope": 73,
+            "src": "467:89:0",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 61,
+              "nodeType": "Block",
+              "src": "626:93:0",
+              "statements": [
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 54,
+                        "name": "defaultChoice",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 20,
+                        "src": "649:13:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_ActionChoices_$14",
+                          "typeString": "enum test.ActionChoices"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_enum$_ActionChoices_$14",
+                          "typeString": "enum test.ActionChoices"
+                        }
+                      ],
+                      "id": 53,
+                      "name": "report",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 31,
+                      "src": "642:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_enum$_ActionChoices_$14_$returns$__$",
+                        "typeString": "function (enum test.ActionChoices)"
+                      }
+                    },
+                    "id": 55,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "642:21:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 56,
+                  "nodeType": "EmitStatement",
+                  "src": "637:26:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 58,
+                        "name": "defaultChoice",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 20,
+                        "src": "697:13:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_ActionChoices_$14",
+                          "typeString": "enum test.ActionChoices"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_enum$_ActionChoices_$14",
+                          "typeString": "enum test.ActionChoices"
+                        }
+                      ],
+                      "id": 57,
+                      "name": "ActionChoices",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14,
+                      "src": "683:13:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_enum$_ActionChoices_$14_$",
+                        "typeString": "type(enum test.ActionChoices)"
+                      }
+                    },
+                    "id": 59,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "683:28:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ActionChoices_$14",
+                      "typeString": "enum test.ActionChoices"
+                    }
+                  },
+                  "functionReturnParameters": 52,
+                  "id": 60,
+                  "nodeType": "Return",
+                  "src": "676:35:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 62,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getDefaultChoice",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 49,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "587:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 52,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 51,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62,
+                  "src": "611:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ActionChoices_$14",
+                    "typeString": "enum test.ActionChoices"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 50,
+                    "name": "ActionChoices",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 14,
+                    "src": "611:13:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ActionChoices_$14",
+                      "typeString": "enum test.ActionChoices"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "610:15:0"
+            },
+            "scope": 73,
+            "src": "562:157:0",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 71,
+              "nodeType": "Block",
+              "src": "750:35:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 69,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 65,
+                      "name": "local",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 27,
+                      "src": "761:5:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 66,
+                          "name": "c",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 25,
+                          "src": "769:1:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_C_$5",
+                            "typeString": "contract C"
+                          }
+                        },
+                        "id": 67,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "data",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 4,
+                        "src": "769:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_external_view$__$returns$_t_uint256_$",
+                          "typeString": "function () view external returns (uint256)"
+                        }
+                      },
+                      "id": 68,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "769:8:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "761:16:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 70,
+                  "nodeType": "ExpressionStatement",
+                  "src": "761:16:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 72,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "getC",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 63,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "740:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 64,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "750:0:0"
+            },
+            "scope": 73,
+            "src": "727:58:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 74,
+        "src": "74:714:0"
+      }
+    ],
+    "src": "0:792:0"
+  },
+  "legacyAST": {
+    "absolutePath": "/D/WorkStation/WEB/Project/ShoppingSite(Angular)/ethDApp/contracts/Example.sol",
+    "exportedSymbols": {
+      "C": [
+        5
+      ],
+      "test": [
+        73
+      ]
+    },
+    "id": 74,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 5,
+        "linearizedBaseContracts": [
+          5
+        ],
+        "name": "C",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 4,
+            "name": "data",
+            "nodeType": "VariableDeclaration",
+            "scope": 5,
+            "src": "45:21:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "45:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "3432",
+              "id": 3,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "64:2:0",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_42_by_1",
+                "typeString": "int_const 42"
+              },
+              "value": "42"
+            },
+            "visibility": "public"
+          }
+        ],
+        "scope": 74,
+        "src": "27:43:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [
+          5
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 73,
+        "linearizedBaseContracts": [
+          73
+        ],
+        "name": "test",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 9,
+            "name": "balances",
+            "nodeType": "VariableDeclaration",
+            "scope": 73,
+            "src": "95:41:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 8,
+              "keyType": {
+                "id": 6,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "104:7:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "95:25:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 7,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "115:4:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "test.ActionChoices",
+            "id": 14,
+            "members": [
+              {
+                "id": 10,
+                "name": "GoLeft",
+                "nodeType": "EnumValue",
+                "src": "164:6:0"
+              },
+              {
+                "id": 11,
+                "name": "GoRight",
+                "nodeType": "EnumValue",
+                "src": "172:7:0"
+              },
+              {
+                "id": 12,
+                "name": "GoStraight",
+                "nodeType": "EnumValue",
+                "src": "181:10:0"
+              },
+              {
+                "id": 13,
+                "name": "SitStill",
+                "nodeType": "EnumValue",
+                "src": "193:8:0"
+              }
+            ],
+            "name": "ActionChoices",
+            "nodeType": "EnumDefinition",
+            "src": "143:60:0"
+          },
+          {
+            "constant": false,
+            "id": 16,
+            "name": "choice",
+            "nodeType": "VariableDeclaration",
+            "scope": 73,
+            "src": "209:20:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_enum$_ActionChoices_$14",
+              "typeString": "enum test.ActionChoices"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 15,
+              "name": "ActionChoices",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 14,
+              "src": "209:13:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_ActionChoices_$14",
+                "typeString": "enum test.ActionChoices"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 20,
+            "name": "defaultChoice",
+            "nodeType": "VariableDeclaration",
+            "scope": 73,
+            "src": "236:63:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_enum$_ActionChoices_$14",
+              "typeString": "enum test.ActionChoices"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 17,
+              "name": "ActionChoices",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 14,
+              "src": "236:13:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_ActionChoices_$14",
+                "typeString": "enum test.ActionChoices"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "expression": {
+                "argumentTypes": null,
+                "id": 18,
+                "name": "ActionChoices",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 14,
+                "src": "275:13:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_type$_t_enum$_ActionChoices_$14_$",
+                  "typeString": "type(enum test.ActionChoices)"
+                }
+              },
+              "id": 19,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "lValueRequested": false,
+              "memberName": "GoStraight",
+              "nodeType": "MemberAccess",
+              "referencedDeclaration": null,
+              "src": "275:24:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_enum$_ActionChoices_$14",
+                "typeString": "enum test.ActionChoices"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 25,
+            "name": "c",
+            "nodeType": "VariableDeclaration",
+            "scope": 73,
+            "src": "306:13:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_C_$5",
+              "typeString": "contract C"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 21,
+              "name": "C",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 5,
+              "src": "306:1:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_C_$5",
+                "typeString": "contract C"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "arguments": [],
+              "expression": {
+                "argumentTypes": [],
+                "id": 23,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": false,
+                "lValueRequested": false,
+                "nodeType": "NewExpression",
+                "src": "312:5:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_function_creation_nonpayable$__$returns$_t_contract$_C_$5_$",
+                  "typeString": "function () returns (contract C)"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 22,
+                  "name": "C",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 5,
+                  "src": "316:1:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_C_$5",
+                    "typeString": "contract C"
+                  }
+                }
+              },
+              "id": 24,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": false,
+              "kind": "functionCall",
+              "lValueRequested": false,
+              "names": [],
+              "nodeType": "FunctionCall",
+              "src": "312:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_C_$5",
+                "typeString": "contract C"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 27,
+            "name": "local",
+            "nodeType": "VariableDeclaration",
+            "scope": 73,
+            "src": "326:10:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 26,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "326:4:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 31,
+            "name": "report",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 30,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 29,
+                  "indexed": false,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31,
+                  "src": "356:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ActionChoices_$14",
+                    "typeString": "enum test.ActionChoices"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 28,
+                    "name": "ActionChoices",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 14,
+                    "src": "356:13:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ActionChoices_$14",
+                      "typeString": "enum test.ActionChoices"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "355:15:0"
+            },
+            "src": "343:28:0"
+          },
+          {
+            "body": {
+              "id": 39,
+              "nodeType": "Block",
+              "src": "409:52:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 37,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 34,
+                      "name": "choice",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 16,
+                      "src": "420:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_ActionChoices_$14",
+                        "typeString": "enum test.ActionChoices"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 35,
+                        "name": "ActionChoices",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14,
+                        "src": "429:13:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_ActionChoices_$14_$",
+                          "typeString": "type(enum test.ActionChoices)"
+                        }
+                      },
+                      "id": 36,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "GoStraight",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "429:24:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_ActionChoices_$14",
+                        "typeString": "enum test.ActionChoices"
+                      }
+                    },
+                    "src": "420:33:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ActionChoices_$14",
+                      "typeString": "enum test.ActionChoices"
+                    }
+                  },
+                  "id": 38,
+                  "nodeType": "ExpressionStatement",
+                  "src": "420:33:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 40,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "setGoStraight",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 32,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "399:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 33,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "409:0:0"
+            },
+            "scope": 73,
+            "src": "377:84:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 47,
+              "nodeType": "Block",
+              "src": "524:32:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 45,
+                    "name": "choice",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 16,
+                    "src": "542:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ActionChoices_$14",
+                      "typeString": "enum test.ActionChoices"
+                    }
+                  },
+                  "functionReturnParameters": 44,
+                  "id": 46,
+                  "nodeType": "Return",
+                  "src": "535:13:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 48,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getChoice",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 41,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "485:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 44,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 43,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48,
+                  "src": "509:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ActionChoices_$14",
+                    "typeString": "enum test.ActionChoices"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 42,
+                    "name": "ActionChoices",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 14,
+                    "src": "509:13:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ActionChoices_$14",
+                      "typeString": "enum test.ActionChoices"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "508:15:0"
+            },
+            "scope": 73,
+            "src": "467:89:0",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 61,
+              "nodeType": "Block",
+              "src": "626:93:0",
+              "statements": [
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 54,
+                        "name": "defaultChoice",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 20,
+                        "src": "649:13:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_ActionChoices_$14",
+                          "typeString": "enum test.ActionChoices"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_enum$_ActionChoices_$14",
+                          "typeString": "enum test.ActionChoices"
+                        }
+                      ],
+                      "id": 53,
+                      "name": "report",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 31,
+                      "src": "642:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_enum$_ActionChoices_$14_$returns$__$",
+                        "typeString": "function (enum test.ActionChoices)"
+                      }
+                    },
+                    "id": 55,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "642:21:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 56,
+                  "nodeType": "EmitStatement",
+                  "src": "637:26:0"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 58,
+                        "name": "defaultChoice",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 20,
+                        "src": "697:13:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_ActionChoices_$14",
+                          "typeString": "enum test.ActionChoices"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_enum$_ActionChoices_$14",
+                          "typeString": "enum test.ActionChoices"
+                        }
+                      ],
+                      "id": 57,
+                      "name": "ActionChoices",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14,
+                      "src": "683:13:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_enum$_ActionChoices_$14_$",
+                        "typeString": "type(enum test.ActionChoices)"
+                      }
+                    },
+                    "id": 59,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "683:28:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ActionChoices_$14",
+                      "typeString": "enum test.ActionChoices"
+                    }
+                  },
+                  "functionReturnParameters": 52,
+                  "id": 60,
+                  "nodeType": "Return",
+                  "src": "676:35:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 62,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getDefaultChoice",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 49,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "587:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 52,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 51,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62,
+                  "src": "611:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ActionChoices_$14",
+                    "typeString": "enum test.ActionChoices"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 50,
+                    "name": "ActionChoices",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 14,
+                    "src": "611:13:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ActionChoices_$14",
+                      "typeString": "enum test.ActionChoices"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "610:15:0"
+            },
+            "scope": 73,
+            "src": "562:157:0",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 71,
+              "nodeType": "Block",
+              "src": "750:35:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 69,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 65,
+                      "name": "local",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 27,
+                      "src": "761:5:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [],
+                      "expression": {
+                        "argumentTypes": [],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 66,
+                          "name": "c",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 25,
+                          "src": "769:1:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_C_$5",
+                            "typeString": "contract C"
+                          }
+                        },
+                        "id": 67,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "data",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 4,
+                        "src": "769:6:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_external_view$__$returns$_t_uint256_$",
+                          "typeString": "function () view external returns (uint256)"
+                        }
+                      },
+                      "id": 68,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "769:8:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "761:16:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 70,
+                  "nodeType": "ExpressionStatement",
+                  "src": "761:16:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 72,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "getC",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 63,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "740:2:0"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 64,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "750:0:0"
+            },
+            "scope": 73,
+            "src": "727:58:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 74,
+        "src": "74:714:0"
+      }
+    ],
+    "src": "0:792:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2023-08-23T00:34:53.295Z"
+}

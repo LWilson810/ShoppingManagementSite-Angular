@@ -1,0 +1,35 @@
+<div class='row'>
+    <form [formGroup]='formgroup'>
+        <!-- <div class='container'> -->
+        <ul>
+            <!-- <div class='col-md-4 col-sm-4' id='field'> -->
+            <li id='field'>
+                <span>Field&nbsp;</span>
+                <select id='field-select' (change)='onChangeField($event)' *ngIf='!isAddNewField' value="{{field}}">
+                    <option value='all' selected>All</option>
+                    <option *ngFor = 'let item of fields_shops|filterFieldsShops: "field" : myFieldInfo.myField' [value]='item.field'>{{item.field}}</option>
+                </select>
+                <input type='text' *ngIf='isAddNewField' formControlName='newField'>
+                <span class = "add-item" (click)='addField()' *ngIf='!isAddNewField'><i class='fa fa-plus'></i></span>
+                <span class = 'check' *ngIf='isAddNewField' (click)='addNewField()'><i class='fa fa-check'></i></span>
+                <span class = 'cross' *ngIf='isAddNewField' (click)='closeAddField()'><i class='fa fa-times'></i></span>
+            <!-- </div> -->
+            </li>
+            <!-- <div class='col-md-4 col-sm-4' id='shop'> -->
+            <li id='shop' *ngIf='field != "all"'>
+                <span>Shop&nbsp;</span>
+                <select id='shop-select' (change)='onChangeShop($event)' *ngIf='!isAddNewShop' value='{{shop}}'>
+                    <option value='all' selected>All</option>
+                    <option *ngFor = "let item of shops|filterFieldsShops: 'shop' : myFieldInfo.myShop" [value] = "item.shop">{{item.shop}}</option>
+                </select>
+                <input type='text' *ngIf='isAddNewShop' formControlName='newShop'>
+                <span class = "add-item" (click)='addShop()' *ngIf='!isAddNewShop'><i class='fa fa-plus'></i></span>
+                <span class = 'check' *ngIf='isAddNewShop' (click)='addNewShop()'><i class='fa fa-check'></i></span>
+                <span class = 'cross' *ngIf='isAddNewShop' (click)='closeAddShop()'><i class='fa fa-times'></i></span>
+            <!-- </div> -->
+            </li>
+        <!-- </div> -->
+        </ul>
+    </form>
+</div>
+    

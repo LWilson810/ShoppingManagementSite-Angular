@@ -1,0 +1,45 @@
+<div class='container'>
+    <div class = "col-md-12">
+        <table id = "table_news" class="table table-striped table-hover dataTable no-footer" role="grid" style='margin: "10px";width: "100%"' aria-describedby = "table_news_info">
+            <thead>
+                <tr role="row">
+                    <th class="col-md-2 sorting th-style"  aria-sort = "ascending">Name</th>
+                    <th class=" col-md-2 sorting th-style left-border">User ID</th>
+                    <th class=" col-md-2 sorting th-style left-border">Authority</th>
+                    <th class=" col-md-3 sorting th-style left-border">Field</th>
+                    <th class=" col-md-3 sorting th-style left-border">Shop</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let member of staff_list"  key = "" role = "row">
+                    <td class='col-md-2 none-left-border'>{{member.name}}</td>
+                    <td class='col-md-2'>{{member.userID}}</td>
+                    <td class='col-md-2' autoDeslash>{{member.authority}}</td>
+                    <td class='col-md-3' autoDeslash>{{member.field}}</td>
+                    <td class='col-md-3 none-right-border' autoDeslash>{{member.shop}}</td>
+                </tr>
+                <!-- <tr role='row'>
+                    <td class='col-md-2 none-left-border'>Hye Song</td>
+                    <td class='col-md-2'>Admin</td>
+                    <td class='col-md-2'>President</td>
+                    <td class='col-md-3'>---</td>
+                    <td class='col-md-3 none-right-border'>---</td>
+                </tr>
+                <tr role='row'>
+                    <td class='col-md-2 none-left-border'>Hye Song</td>
+                    <td class='col-md-2'>Admin</td>
+                    <td class='col-md-2'>President</td>
+                    <td class='col-md-3'>---</td>
+                    <td class='col-md-3 none-right-border'>---</td>
+                </tr>
+                <tr role='row'>
+                    <td class='col-md-2 none-left-border'>Hye Song</td>
+                    <td class='col-md-2'>Admin</td>
+                    <td class='col-md-2'>President</td>
+                    <td class='col-md-3'>---</td>
+                    <td class='col-md-3 none-right-border'>---</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+</div>
